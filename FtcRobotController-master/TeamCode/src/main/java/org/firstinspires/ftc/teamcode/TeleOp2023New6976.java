@@ -3,13 +3,11 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import android.text.method.Touch;
-import com.qualcomm.robotcore.hardware.TouchSensor;
-import org.firstinspires.ftc.teamcode.Team6976HWMap2023;
+import com.qualcomm.robotcore.hardware.Servo;
 
-public class TeleOp2023New6976 {
-    @TeleOp(name = "Team6976TeleOp2023", group = "4008")
-    public class TeleOp2023NewYes6976 extends LinearOpMode {
+
+    @TeleOp(name = "TeleOp2023New6976", group = "6976")
+    public class TeleOp2023New6976 extends LinearOpMode {
         Team6976HWMap2023 robot = new Team6976HWMap2023();
 
 
@@ -81,4 +79,3 @@ public class TeleOp2023New6976 {
             }
         }
     }
-}
