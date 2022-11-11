@@ -61,4 +61,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: artifact
-        path: TeamCode/build/reports/lint-results-debug.html
+        path: |
+          TeamCode/build/reports/lint-results-debug.html
+          TeamCode/build/outputs/apk/
