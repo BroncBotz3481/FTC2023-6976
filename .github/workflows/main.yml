@@ -56,8 +56,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Compile and run tests on robot code
       run: ./gradlew build
-      
-    - uses: actions/upload-artifact@v3
-      with:
-        name: artifact
-        path: TeamCode/build/
+     
+    - name: Display file list
+      run: find . -type f
+    #- uses: actions/upload-artifact@v3
+    #  with:
+    #    name: artifact
+    #    path: TeamCode/build/
