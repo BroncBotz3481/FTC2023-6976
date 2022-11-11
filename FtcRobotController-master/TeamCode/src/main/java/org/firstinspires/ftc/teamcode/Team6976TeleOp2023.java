@@ -24,17 +24,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
             robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.Intake.setPosition(0);
-            robot.Intake.setPosition(1);
 
             //robot.Lights.setPattern(RevBlinkinLedDriver.BlinkinPattern.BEATS_PER_MINUTE_PARTY_PALETTE);
             waitForStart();
 
             while (opModeIsActive()) {
                 boolean speedslow = gamepad1.right_bumper;
-                double mag = speedslow ? 0.75 : 1.0;
+                double mag = speedslow ? 0.8 : 0.6;
 
                 boolean speedslow1 = gamepad1.left_bumper;
-                double mag1 = speedslow1 ? 0.75 : 0.4;
+                double mag1 = speedslow1 ? 0.3 : 0.6;
 
                 double y = gamepad1.left_stick_y; // Remember, this is reversed!
                 double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
@@ -62,17 +61,17 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                 robot.DriveRightBack.setPower(backRightPower * mag);
 
                 if (gamepad2.b) {
-                    robot.Elevator.setPower(1);
+                    robot.Elevator.setPower(0.6);
                 }
                 else if (gamepad2.a){
-                    robot.Elevator.setPower(-0.75);
+                    robot.Elevator.setPower(-0.5);
                 }
                 else {
                     robot.Elevator.setPower(0);
                 }
 
                 if (gamepad2.x){
-                    robot.Intake.setPosition(1);
+                    robot.Intake.setPosition(0.3);
                 }
                 else{
                     robot.Intake.setPosition(0);
