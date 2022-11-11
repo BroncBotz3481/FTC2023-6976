@@ -57,9 +57,8 @@ jobs:
     - name: Compile and run tests on robot code
       run: ./gradlew build
      
-    - name: Display file list
-      run: find . -type f
-    #- uses: actions/upload-artifact@v3
-    #  with:
-    #    name: artifact
-    #    path: TeamCode/build/
+    # Upload lint report
+    - uses: actions/upload-artifact@v3
+      with:
+        name: artifact
+        path: TeamCode/build/reports/lint-results-debug.html
