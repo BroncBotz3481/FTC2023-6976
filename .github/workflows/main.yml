@@ -60,7 +60,10 @@ jobs:
     # Upload lint report
     - uses: actions/upload-artifact@v3
       with:
-        name: artifact
-        path: |
-          TeamCode/build/reports/lint-results-debug.html
-          TeamCode/build/outputs/apk/
+        name: lint_report
+        path: TeamCode/build/reports/
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: apk
+        path: TeamCode/build/outputs/apk/
