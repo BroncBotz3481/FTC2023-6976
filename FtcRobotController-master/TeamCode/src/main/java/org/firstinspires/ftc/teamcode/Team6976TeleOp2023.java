@@ -3,11 +3,10 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 
 
-    @TeleOp(name = "TeleOp2023New6976", group = "6976")
-    public class TeleOp2023New6976 extends LinearOpMode {
+@TeleOp(name = "Team6976TeleOp2023", group = "6976")
+    public class Team6976TeleOp2023 extends LinearOpMode {
         Team6976HWMap2023 robot = new Team6976HWMap2023();
 
 
@@ -25,14 +24,16 @@ import com.qualcomm.robotcore.hardware.Servo;
             robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.Intake.setPosition(0);
-            robot.Intake.setPosition(1);
 
             //robot.Lights.setPattern(RevBlinkinLedDriver.BlinkinPattern.BEATS_PER_MINUTE_PARTY_PALETTE);
             waitForStart();
 
             while (opModeIsActive()) {
                 boolean speedslow = gamepad1.right_bumper;
-                double mag = speedslow ? 1.0 : 0.5;
+                double mag = speedslow ? 0.8 : 0.6;
+
+                boolean speedslow1 = gamepad1.left_bumper;
+                double mag1 = speedslow1 ? 0.3 : 0.6;
 
                 double y = gamepad1.left_stick_y; // Remember, this is reversed!
                 double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
@@ -42,7 +43,7 @@ import com.qualcomm.robotcore.hardware.Servo;
                 // Denominator is the largest motor power (absolute value) or 1
                 // This ensures all the powers maintain the same ratio, but only when
                 // at least one is out of the range [-1, 1]
-                double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
+                double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1.5);
                 double frontLeftPower = (y + x + rx) / denominator;
                 double backLeftPower = (y - x + rx) / denominator;
                 double frontRightPower = (y - x - rx) / denominator;
@@ -60,22 +61,21 @@ import com.qualcomm.robotcore.hardware.Servo;
                 robot.DriveRightBack.setPower(backRightPower * mag);
 
                 if (gamepad2.b) {
-                    robot.Elevator.setPower(1);
+                    robot.Elevator.setPower(0.6);
                 }
                 else if (gamepad2.a){
-                    robot.Elevator.setPower(-1);
+                    robot.Elevator.setPower(-0.5);
                 }
                 else {
                     robot.Elevator.setPower(0);
                 }
 
                 if (gamepad2.x){
-                    robot.Intake.setPosition(1);
+                    robot.Intake.setPosition(0.3);
                 }
                 else{
                     robot.Intake.setPosition(0);
                 }
-
             }
         }
     }
