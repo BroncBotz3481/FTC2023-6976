@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Team6976HWMap2023 {
@@ -13,6 +14,8 @@ public class Team6976HWMap2023 {
 
     public DcMotor Elevator = null;
     public Servo Intake = null;
+
+    public NormalizedColorSensor ColorSensor = null;
 
     HardwareMap hwMap =  null;
 
@@ -46,6 +49,9 @@ public class Team6976HWMap2023 {
           Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
           Intake = hwMap.get(Servo.class, "Intake");
+
+          ColorSensor = hwMap.get(NormalizedColorSensor.class, "Sensor");
+
     }
 
 }
