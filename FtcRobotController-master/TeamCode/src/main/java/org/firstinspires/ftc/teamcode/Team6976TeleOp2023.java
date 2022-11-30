@@ -49,10 +49,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                 double frontRightPower = (y - x - rx) / denominator;
                 double backRightPower = (y + x - rx) / denominator;
 
-                telemetry.addData("RightFront", robot.DriveRightFront.getCurrentPosition());
-                telemetry.addData("RightBack", robot.DriveRightBack.getCurrentPosition());
-                telemetry.addData("LeftFront", robot.DriveLeftFront.getCurrentPosition());
-                telemetry.addData("LeftBack", robot.DriveLeftBack.getCurrentPosition());
+                telemetry.addData("DriveRightFront", robot.DriveRightFront.getCurrentPosition());
+                telemetry.addData("DriveRightBack", robot.DriveRightBack.getCurrentPosition());
+                telemetry.addData("DriveLeftFront", robot.DriveLeftFront.getCurrentPosition());
+                telemetry.addData("DriveLeftBack", robot.DriveLeftBack.getCurrentPosition());
                 telemetry.update();
 
                 robot.DriveLeftFront.setPower(frontLeftPower * mag);
