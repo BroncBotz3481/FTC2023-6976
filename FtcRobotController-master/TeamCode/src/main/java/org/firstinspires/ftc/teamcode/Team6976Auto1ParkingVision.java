@@ -10,7 +10,6 @@ import com.qualcomm.robotcore.hardware.SwitchableLight;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="Team6976Auto1ParkingVision", group="6976")
-
 public class Team6976Auto1ParkingVision extends LinearOpMode{
     Team6976HWMap2023 robot = new Team6976HWMap2023();
     ElapsedTime Time = new ElapsedTime();
@@ -41,11 +40,11 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         tick = (distance * 537.7)/(4 * Math.PI);
         Time.reset();
-        robot.DriveRightFront.setPower(-multy);
-        robot.DriveLeftFront.setPower(-multy);
-        robot.DriveRightBack.setPower(-multy);
-        robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 4500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        robot.DriveRightFront.setPower(multy);
+        robot.DriveLeftFront.setPower(multy);
+        robot.DriveRightBack.setPower(multy);
+        robot.DriveLeftBack.setPower(multy);
+        while(opModeIsActive() && Time.milliseconds() < 3000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
@@ -55,7 +54,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         robot.DriveLeftBack.setPower(0);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(1000);
+        sleep(1200);
 
         Time.reset();
         while (opModeIsActive() && count < 5) {
@@ -119,16 +118,16 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         }
         //Drive forward
         distance = 20;
-        multy = 0.15;
+        multy = 0.12;
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         tick = (distance * 537.7)/(4 * Math.PI);
         Time.reset();
-        robot.DriveRightFront.setPower(-multy);
-        robot.DriveLeftFront.setPower(-multy);
-        robot.DriveRightBack.setPower(-multy);
-        robot.DriveLeftBack.setPower(-multy);
-        while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        robot.DriveRightFront.setPower(multy);
+        robot.DriveLeftFront.setPower(multy);
+        robot.DriveRightBack.setPower(multy);
+        robot.DriveLeftBack.setPower(multy);
+        while(opModeIsActive() && Time.milliseconds() < 1500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             //telemetry.update();
         }
@@ -143,31 +142,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         if(OPG == 1){
             //Strafe Left
             distance = 20;
-            multy = 0.4;
-            // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            tick = (distance * 537.7)/(4 * Math.PI);
-            Time.reset();
-            robot.DriveRightFront.setPower(-multy);
-            robot.DriveLeftFront.setPower(multy);
-            robot.DriveRightBack.setPower(multy);
-            robot.DriveLeftBack.setPower(-multy);
-            while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
-                telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
-                //telemetry.update();
-            }
-            robot.DriveRightFront.setPower(0);
-            robot.DriveLeftFront.setPower(0);
-            robot.DriveRightBack.setPower(0);
-            robot.DriveLeftBack.setPower(0);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1000);
-        }
-        else if (OPG == 3){
-            //Strafe Right
-            distance = 20;
-            multy = 0.4;
+            multy = 0.3;
             // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             tick = (distance * 537.7)/(4 * Math.PI);
@@ -175,8 +150,8 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveRightFront.setPower(multy);
             robot.DriveLeftFront.setPower(-multy);
             robot.DriveRightBack.setPower(-multy);
-            robot.DriveLeftBack.setPower(multy);
-            while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            robot.DriveLeftBack.setPower(+multy);
+            while(opModeIsActive() && Time.milliseconds() < 1700 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
@@ -186,21 +161,45 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftBack.setPower(0);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1000);
-
-            //Back
+            sleep(1200);
+        }
+        else if (OPG == 3){
+            //Strafe Right
             distance = 20;
-            multy = 0.25;
+            multy = 0.3;
             // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             tick = (distance * 537.7)/(4 * Math.PI);
             Time.reset();
-            robot.DriveRightFront.setPower(multy);
-            robot.DriveLeftFront.setPower(multy);
-            robot.DriveRightBack.setPower(multy);
-            robot.DriveLeftBack.setPower(multy);
-            while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            robot.DriveRightFront.setPower(-multy);
+            robot.DriveLeftFront.setPower(+multy);
+            robot.DriveRightBack.setPower(+multy);
+            robot.DriveLeftBack.setPower(-multy);
+            while(opModeIsActive() && Time.milliseconds() < 1700 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
+                //telemetry.update();
+            }
+            robot.DriveRightFront.setPower(0);
+            robot.DriveLeftFront.setPower(0);
+            robot.DriveRightBack.setPower(0);
+            robot.DriveLeftBack.setPower(0);
+            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            sleep(1200);
+
+            //Back
+//            distance = 20;
+//            multy = 0.25;
+//            // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            tick = (distance * 537.7)/(4 * Math.PI);
+//            Time.reset();
+//            robot.DriveRightFront.setPower(multy);
+//            robot.DriveLeftFront.setPower(multy);
+//            robot.DriveRightBack.setPower(multy);
+//            robot.DriveLeftBack.setPower(multy);
+//            while(opModeIsActive() && Time.milliseconds() < 500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+//                telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
             robot.DriveRightFront.setPower(0);
@@ -212,4 +211,4 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             sleep(1000);
         }
     }
-}
+

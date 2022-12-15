@@ -61,10 +61,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                 robot.DriveRightBack.setPower(backRightPower * mag);
 
                 if (gamepad2.b) {
-                    robot.Elevator.setPower(0.6);
+                    robot.Elevator.setPower(0.8);
                 }
                 else if (gamepad2.a){
-                    robot.Elevator.setPower(-0.5);
+                    robot.Elevator.setPower(-0.2);
                 }
                 else {
                     robot.Elevator.setPower(0);
