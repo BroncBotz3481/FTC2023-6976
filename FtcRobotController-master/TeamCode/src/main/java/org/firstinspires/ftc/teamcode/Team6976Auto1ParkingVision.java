@@ -44,7 +44,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         robot.DriveLeftFront.setPower(multy);
         robot.DriveRightBack.setPower(multy);
         robot.DriveLeftBack.setPower(multy);
-        while(opModeIsActive() && Time.milliseconds() < 3000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while(opModeIsActive() && Time.milliseconds() < 2900 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             // telemetry.update();
         }
@@ -54,7 +54,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         robot.DriveLeftBack.setPower(0);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(1200);
+        sleep(1500);
 
         Time.reset();
         while (opModeIsActive() && count < 5) {
@@ -106,10 +106,10 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         Time.reset();
         while (opModeIsActive() && Time.milliseconds() < 300){
             int Hvalue = (int) hsvValues[0];
-            if (Hvalue >= 0 && Hvalue <= 140){
+            if (Hvalue >= 0 && Hvalue <= 135){
                 OPG = 1;
             }
-            else if(Hvalue > 140 && Hvalue <= 152) {
+            else if(Hvalue > 135 && Hvalue <= 152) {
                 OPG = 2;
             }
             else{
@@ -118,7 +118,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         }
         //Drive forward
         distance = 20;
-        multy = 0.12;
+        multy = 0.13;
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         tick = (distance * 537.7)/(4 * Math.PI);
@@ -127,7 +127,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         robot.DriveLeftFront.setPower(multy);
         robot.DriveRightBack.setPower(multy);
         robot.DriveLeftBack.setPower(multy);
-        while(opModeIsActive() && Time.milliseconds() < 1500 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+        while(opModeIsActive() && Time.milliseconds() < 1900 && robot.DriveLeftFront.getCurrentPosition() < tick) {
             telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
             //telemetry.update();
         }
@@ -137,12 +137,12 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
         robot.DriveLeftBack.setPower(0);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        sleep(1000);
+        sleep(1500);
 
         if(OPG == 1){
             //Strafe Left
             distance = 20;
-            multy = 0.3;
+            multy = 0.34;
             // robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             tick = (distance * 537.7)/(4 * Math.PI);
@@ -151,7 +151,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftFront.setPower(-multy);
             robot.DriveRightBack.setPower(-multy);
             robot.DriveLeftBack.setPower(+multy);
-            while(opModeIsActive() && Time.milliseconds() < 1700 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            while(opModeIsActive() && Time.milliseconds() < 1950 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
@@ -161,7 +161,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftBack.setPower(0);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1200);
+            sleep(1500);
         }
         else if (OPG == 3){
             //Strafe Right
@@ -175,7 +175,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftFront.setPower(+multy);
             robot.DriveRightBack.setPower(+multy);
             robot.DriveLeftBack.setPower(-multy);
-            while(opModeIsActive() && Time.milliseconds() < 1700 && robot.DriveLeftFront.getCurrentPosition() < tick) {
+            while(opModeIsActive() && Time.milliseconds() < 2000 && robot.DriveLeftFront.getCurrentPosition() < tick) {
                 telemetry.addData("Encoder Val", robot.DriveLeftFront.getCurrentPosition());
                 //telemetry.update();
             }
@@ -185,7 +185,7 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftBack.setPower(0);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1200);
+            sleep(1500);
 
             //Back
 //            distance = 20;
@@ -208,7 +208,8 @@ public class Team6976Auto1ParkingVision extends LinearOpMode{
             robot.DriveLeftBack.setPower(0);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             //  robot.DriveLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            sleep(1000);
+            sleep(1500);
         }
     }
+
 
